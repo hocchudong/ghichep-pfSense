@@ -109,16 +109,15 @@ Bài lab thành công khi máy client nhận được IP của mạng LAN và c�
     ![img](../images/ovpn_18.jpg)
 
 ## Thực hiện trên Client, kết nối VPN
-
   - Trên Client, cài đặt gói OpenVPN config
-    ![img](../images/ovpn_19.jpg)
+  ![img](../images/ovpn_19.jpg)
 
   - Kết nối VPN, nhập password của user longlq, sau khi quay VPN thành công, client nhận IP của dải mạng LAN2 của pfSense là 20.20.20.50
-    ![img](../images/ovpn_20.jpg)
-    ![img](../images/ovpn_20_2.jpg)
+  ![img](../images/ovpn_20.jpg)
+  ![img](../images/ovpn_20_2.jpg)
 
   - Từ client, đã có thể ping đến dải mạng LAN2
-    ![img](../images/ovpn_21.jpg)
+  ![img](../images/ovpn_21.jpg)
 
 
 
