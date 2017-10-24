@@ -5,7 +5,7 @@
   - Host Firewall cài đặt PFSense.
   - Host server_target: server trong mạng LAN (target network để kết nối VPN tới)
   - Client: cài đặt OpenVPN client.
-Bài lab thành công khi máy client nhận được IP của mạng LAN và có thể kêt nối tới server_target.
+Bài lab thành công khi máy client nhận được IP của mạng LAN2 và có thể kêt nối tới server_target.
 
 ## Mô hình 
 - Sử dụng mô hình dưới để cài đặt
@@ -119,7 +119,7 @@ Bài lab thành công khi máy client nhận được IP của mạng LAN và c�
     ![img](../images/ovpn_20_2.jpg)
 
   - Từ client, đã có thể ping đến dải mạng LAN2
-  
+
   ![img](../images/ovpn_21.jpg)
 
 
