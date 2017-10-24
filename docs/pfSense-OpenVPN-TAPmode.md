@@ -31,6 +31,7 @@ Bài lab thành công khi máy client nhận được IP của mạng LAN2 và c
  ![img](../images/ovpn_5.jpg)
   
 - Tiếp tục tạo certificate cho user
+
   ![img](../images/ovpn_6.jpg)
 
 - Tại tab System/UserManager, tạo user được VPN
