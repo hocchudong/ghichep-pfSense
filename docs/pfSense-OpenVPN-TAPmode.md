@@ -18,7 +18,7 @@ Bài lab thành công khi máy client nhận được IP của mạng LAN2 và c
 ## Chuẩn bị và môi trường LAB
 - Máy server_target: có thể sử dụng bất kỳ hệ điều hành và cấu hình nào.
 - Máy Client: có thể sử dụng hệ điều hành Linux hoặc Windows (tùy vào loại hệ điều hành mà cài gói OpenVPN client tương ứng), trong bài lab này sẽ sử dụng OS Windows 10.
-- Máy PFSense: tham khảo hướng dẫn cài đặt ở đây
+- Máy PFSense: tham khảo hướng dẫn cài đặt ở ![đây](./pfsense-install.md)
  
 
 ## Thực hiện trên PFSense
@@ -127,10 +127,9 @@ Bài lab thành công khi máy client nhận được IP của mạng LAN2 và c
 
 Tham khảo:
 
-[1] - http://www.iamasuperuser.com/install-pfsense/
 
-[2] - https://www.tecmint.com/how-to-install-and-configure-pfsense/2/
+[1] - https://www.tecmint.com/how-to-install-and-configure-pfsense/2/
 
-[3]- https://jacob.gardiner-moon.co.uk/2016/06/02/configure-openvpn-pfsense-2-3-1/
+[2]- https://jacob.gardiner-moon.co.uk/2016/06/02/configure-openvpn-pfsense-2-3-1/
 
-[4]- https://nguvu.org/pfsense/pfsense-inbound_vpn/
+[3]- https://nguvu.org/pfsense/pfsense-inbound_vpn/
