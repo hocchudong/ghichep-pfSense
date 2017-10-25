@@ -25,6 +25,7 @@ Hệ thống VMWare Workstation với các card mạng sau
 ![img](../images/configuration.jpg)
 
 Lưu ý: OS chọn Other/FreeBSD (32 hoặc 64 tùy phiên bản)
+
 ![img](../images/free_bsd_version.jpg)
 
 ## Cài đặt PFSense
