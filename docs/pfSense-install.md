@@ -23,6 +23,7 @@ Hệ thống VMWare Workstation với các card mạng sau
 ## Tạo máy ảo PFSense trên VMWare
 - Cấu hình máy ảo và card mạng như sau:
 ![img](../images/configuration.jpg)
+
 Lưu ý: OS chọn Other/FreeBSD (32 hoặc 64 tùy phiên bản)
 ![img](../images/free_bsd_version.jpg)
 
@@ -50,6 +51,7 @@ Lưu ý: OS chọn Other/FreeBSD (32 hoặc 64 tùy phiên bản)
 
 - Lựa chọn card mạng cho WAN và LAN (mặc định PFSense shell chỉ cho phép khai báo 1 card LAN, card LAN2 sẽ khai báo trên PFsense web)
 ![img](../images/pfsense_8.jpg)
+
 Xác nhận thông tin card mạng và chọn 'y'
 ![img](../images/pfsense_9.jpg)
 
