@@ -25,11 +25,15 @@ Bài lab thành công khi máy client nhận được IP của mạng LAN2 và c
 
 ### Tạo User và Certificate
 
-- Tại tab System/Certificate Manager, tạo CA mới cho user
+- Tại tab System/Certificate Manager/CA, tạo CA cho OpenVPN, CA này sẽ xác thực tất cả các certificate của server VPN và user VPN khi kết nối tới PFSense OpenVPN
+
  ![img](../images/ovpn_4.jpg)
  Sau đó chọn "Save", kết quả;
  ![img](../images/ovpn_5.jpg)
   
+- Tại tab System/Certificate Manager/Certificate, tạo certificate cho server VPN
+  ![img](../images/ovpn_5_1.jpg)
+
 - Tiếp tục tạo certificate cho user
 
   ![img](../images/ovpn_6.jpg)
@@ -38,10 +42,10 @@ Bài lab thành công khi máy client nhận được IP của mạng LAN2 và c
   ![img](../images/ovpn_3.jpg)
 
 - Edit user vừa tạo, add certificate cho user đó
-  ![img](../images/ovpn_16.jpg)
+  ![img](../images/ovpn_3_1.jpg)
 
 - Chọn cert vừa tạo ở trên
-  ![img](../images/ovpn_17.jpg)
+  ![img](../images/ovpn_3_2.jpg)
 
 ### Tạo VPN Server
 
@@ -61,8 +65,8 @@ Bài lab thành công khi máy client nhận được IP của mạng LAN2 và c
   ![img](../images/ovpn_7.jpg) 
 - Khai báo các thông tin về mã hóa
   - TLS Configuration: chọn sử dụng TLS key
-  - Peer Certificate Authority: chọn CA cho user được tạo
-  - Server certificate: chọn cert cho user được tạo
+  - Peer Certificate Authority: chọn CA cho hệ thống đã tạo trước đó (longlq-ca)
+  - Server certificate: chọn cert cho server được tạo (server)
   ![img](../images/ovpn_8.jpg) 
 - Khai báo các thông tin về tap
   - Bridge DHCP: cho phép client nhận IP trong LAN thông qua DHCP Server
