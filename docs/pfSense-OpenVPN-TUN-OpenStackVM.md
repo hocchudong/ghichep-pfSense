@@ -12,7 +12,7 @@ Bài lab thành công khi máy remote quay VPN thành công và ping được t�
 
 ## IP Planning
 - Phân hoạch IP cho các máy chủ trong mô hình trên
-![img](../images/ip-planning.jpg)
+![img](../images/openstack_pfsense/image_2.jpg)
 
 ## Chuẩn bị và môi trường LAB
 - Máy remote: OS Ubunu 14.04
