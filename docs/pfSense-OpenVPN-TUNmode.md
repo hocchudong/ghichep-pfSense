@@ -1,11 +1,11 @@
-## Hướng dẫn PFSense OpenVPN mode TAP
+## Hướng dẫn PFSense OpenVPN mode TUN
 
 ### Mục tiêu LAB
 - Mô hình này sử dụng 3 server, trong đó:
   - Host Firewall cài đặt PFSense.
   - Host server_target: server trong mạng LAN (target network để kết nối VPN tới)
   - Client: cài đặt OpenVPN client.
-Bài lab thành công khi máy client nhận được IP của mạng LAN2 và có thể kêt nối tới server_target.
+Bài lab thành công khi máy client nhận được IP của tunnel và có thể kêt nối tới các private VLAN của server_target.
 
 ## Mô hình 
 - Sử dụng mô hình dưới để cài đặt
@@ -36,16 +36,16 @@ Bài lab thành công khi máy client nhận được IP của mạng LAN2 và c
 
 - Tiếp tục tạo certificate cho user
 
-  ![img](../images/ovpn_6.jpg)
+  ![img](../images/openvpn_tun/1.jpg)
 
 - Tại tab System/UserManager, tạo user được VPN
-  ![img](../images/ovpn_3.jpg)
+  ![img](../images/openvpn_tun/2.jpg)
 
 - Edit user vừa tạo, add certificate cho user đó
-  ![img](../images/ovpn_3_1.jpg)
+  ![img](../images/openvpn_tun/3.jpg)
 
 - Chọn cert vừa tạo ở trên
-  ![img](../images/ovpn_3_2.jpg)
+  ![img](../images/openvpn_tun/4.jpg)
 
 ### Tạo VPN Server
 
@@ -59,48 +59,45 @@ Bài lab thành công khi máy client nhận được IP của mạng LAN2 và c
 
 - Khai báo các thông tin về mode kết nối:
   - Server mode: Remote Access (SSL/TLS + User Auth)
-  - Device mode: tap
+  - Device mode: tun
   - Interface: WAN
-  - Local port: 1194   
-  ![img](../images/ovpn_7.jpg) 
+  - Local port: 1195 (tùy ý lựa chọn port)   
+  ![img](../images/openvpn_tun/5.jpg) 
 - Khai báo các thông tin về mã hóa
   - TLS Configuration: chọn sử dụng TLS key
   - Peer Certificate Authority: chọn CA cho hệ thống đã tạo trước đó (longlq-ca)
   - Server certificate: chọn cert cho server được tạo (server)
   ![img](../images/ovpn_8.jpg) 
-- Khai báo các thông tin về tap
-  - Bridge DHCP: cho phép client nhận IP trong LAN thông qua DHCP Server
-  - Bridge Interface: lựa chọn LAN được kết nối qua VPN
-  - IPv4 local Network: khai báo dải mạng được truy cập thông qua VPN (LAN2)
+- Khai báo các thông tin về tun
+  - IPv4 Tunnel Network: khai báo network tunnel, VPN client sẽ được route tới Private LAN thông qua network này
+  - IPv4 local Network: khai báo các dải Private LAN được truy cập thông qua VPN
   - Concurrent Connection: khai báo số lượng client được kết nối VPN đồng thời
-  ![img](../images/ovpn_9.jpg)
+  ![img](../images/openvpn_tun/6.jpg)
+
+- Khai báo Private LAN được route thông qua tunnel network
+  ![img](../images/openvpn_tun/7.jpg)
+
 - Click "Save" để tạo VPN Server
 
 ### Cấu hình Interface
 
-- Tại tab Interfaces/InterfaceAssignments, add thêm network port của VPN, đặt tên là vpnlab
-  ![img](../images/ovpn_10.jpg)
+- Tại tab Interfaces/InterfaceAssignments, add thêm network port của VPN, đặt tên là vpnlabtun
+  ![img](../images/openvpn_tun/8.jpg)
 
-- Sửa lại các option của interface vpnlab như sau
-  ![img](../images/ovpn_11.jpg)
-
-- Tại tab Interfaces/Bridges, tạo bridge mới và add 2 interface VPNLAB và LAN2 vào bridge
-  ![img](../images/ovpn_12.jpg)
-
-- Tại tab Interfaces/WAN, bỏ tùy chọn "BLock private network" và "Block login network"
-  ![img](../images/ovpn_17.jpg)
+- Sửa lại các option của interface vpnlabtun như sau
+  ![img](../images/openvpn_tun/9.jpg)
 
 ### Cấu hình Firewall
 
-- Tại tab Firewall/Rules/WAN, add thêm rule cho phép client kết nối tới port 1194 của VPN
+- Tại tab Firewall/Rules/WAN, add thêm rule cho phép client kết nối tới port 1195 của VPN
   Khai báo các thông số như hình
-  ![img](../images/ovpn_13.jpg)
+  !![img](../images/openvpn_tun/10.jpg)
 
 - Tại tab Firewall/Rules/LAN2, add rule cho phép lưu lượng đi qua 
   ![img](../images/ovpn_14.jpg)
 
-- Tại tab Firewall/Rules/VPNLAB, add rule cho phép lưu lượng đi qua 
-  ![img](../images/ovpn_15.jpg)
+- Tại tab Firewall/Rules/VPNLABTUN, add rule cho phép lưu lượng đi qua 
+  !![img](../images/openvpn_tun/11.jpg)
 
 - Tại tab Firewall/Rules/OPENVPN, add rule cho phép lưu lượng đi qua 
   ![img](../images/ovpn_16.jpg)
@@ -109,23 +106,24 @@ Bài lab thành công khi máy client nhận được IP của mạng LAN2 và c
   - Tại tab VPN/OpenVPN/ClientExport, khai báo các thông số:
     - Remote Access Server: lựa chọn OpenVPN server
     - Hostname Resolution: lựa chọn khai báo IP của WAN
-      ![img](../images/ovpn_17.jpg)
-  - Tải gói cài đặt Openvpn config cho windows, có tên "openvpn-pfSense-udp-1194-longlq-install-2.4.4-I601.exe"
-    ![img](../images/ovpn_18.jpg)
+      !![img](../images/openvpn_tun/12.jpg)
+  - Tải gói cài đặt Openvpn config cho windows, có tên "openvpn-pfSense-udp-1195-sammy-install-2.4.4-I601.exe"
+    !![img](../images/openvpn_tun/13.jpg)
 
 ## Thực hiện trên Client, kết nối VPN
   - Trên Client, cài đặt gói OpenVPN config
 
     ![img](../images/ovpn_19.jpg)
 
-  - Kết nối VPN, nhập password của user longlq, sau khi quay VPN thành công, client nhận IP của dải mạng LAN2 của pfSense là 20.20.20.50
+  - Kết nối VPN, nhập password của user sammy, sau khi quay VPN thành công, client nhận IP của dải mạng LAN2 của pfSense là 20.20.20.50
 
-    ![img](../images/ovpn_20.jpg)
-    ![img](../images/ovpn_20_2.jpg)
+    !![img](../images/openvpn_tun/14.jpg)
+    !![img](../images/openvpn_tun/15.jpg)
 
-  - Từ client, đã có thể ping đến dải mạng LAN2
+  - Từ client, đã có thể ping đến dải mạng LAN, LAN2
 
-  ![img](../images/ovpn_21.jpg)
+  !![img](../images/openvpn_tun/16.jpg)
+  !![img](../images/openvpn_tun/17.jpg)
 
 
 
