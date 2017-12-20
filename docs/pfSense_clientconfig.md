@@ -44,7 +44,8 @@
 	tls-client
 	client
 	resolv-retry infinite
-	remote ip_provider_pfsense 1195
+	# Khai báo IP của OpenVPN Server kết nối tới và port
+	remote [ip_provider_openvpn] 1194
 	proto udp
 	verify-x509-name "server-cert" name
 	# File khai báo user, password đăng nhập VPN
