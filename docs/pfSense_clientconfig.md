@@ -40,13 +40,13 @@
 	persist-tun
 	persist-key
 	cipher AES-128-CBC
-	auth SHA1
+	auth SHA256
 	tls-client
 	client
 	resolv-retry infinite
 	# Khai báo IP của OpenVPN Server kết nối tới và port
 	remote [ip_provider_openvpn] 1194
-	proto udp
+	proto tcp-client
 	verify-x509-name "server-cert" name
 	# File khai báo user, password đăng nhập VPN
 	auth-user-pass /etc/openvpn/pfSense-UDP4-1195-client1/pass
