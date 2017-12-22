@@ -110,6 +110,24 @@ Bài lab thành công khi máy client nhận được IP của tunnel và có th
   - Tải gói cài đặt Openvpn config cho windows, có tên "openvpn-pfSense-udp-1195-sammy-install-2.4.4-I601.exe"
     !![img](../images/openvpn_tun/13.jpg)
 
+### Thực hiện trên host server_target
+  - Trên host server_target phải định tuyến về dải tunnel 10.0.0.0/24 thông qua IP LAN của PFSense, trong VD này, card eth1 của server_target kết nối với dải Private LAN của VPN
+    ```sh
+    ip route add 10.0.0.0/24 via 20.20.20.90 dev eth1
+    ```
+  - Kiểm tra:
+    ```sh
+    route -n
+    ```
+    
+    Kết quả:
+    ```sh
+    Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+    0.0.0.0         192.168.2.1     0.0.0.0         UG    0      0        0 eth0
+    10.0.0.0        20.20.20.90     255.255.255.0   UG    0      0        0 eth1
+    ```
+
+
 ## Thực hiện trên Client, kết nối VPN
   - Trên Client, cài đặt gói OpenVPN config
 
