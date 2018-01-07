@@ -122,7 +122,12 @@ Bài lab thành công khi máy client nhận được IP của mạng LAN2 và c
   - Tải gói cài đặt Openvpn config cho windows, có tên "openvpn-pfSense-udp-1194-longlq-install-2.4.4-I601.exe"
     ![img](../images/ovpn_18.jpg)
 
-## Thực hiện trên Client, kết nối VPN
+## Thực hiện trên Client, kết nối VPN (hướng dẫn cho Client sử dụng Windows OS Vista trở về sau)
+
+  - Download gói cài OpenVPN mới nhất cho Windows tại link sau và thực hiện cài đặt: https://openvpn.net/index.php/open-source/downloads.html
+
+    ![img](../images/ovpn_18_1.jpg)
+
   - Trên Client, cài đặt gói OpenVPN config
 
     ![img](../images/ovpn_19.jpg)
