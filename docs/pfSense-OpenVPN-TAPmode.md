@@ -73,7 +73,10 @@ Bài lab thành công khi máy client nhận được IP của mạng LAN2 và c
   - TLS Configuration: chọn sử dụng TLS key
   - Peer Certificate Authority: chọn CA cho hệ thống đã tạo trước đó (server-ca)
   - Server certificate: chọn cert cho server được tạo (server-cert)
+  - Enable NCP: lựa chọn sử dụng mã hóa đường truyền giữa Client và Server, sử dụng các giải thuật mặc định là AES-256-GCM và AES-128-GCM
   ![img](../images/ovpn_8.jpg) 
+  ![img](../images/ovpn_8_1.jpg) 
+
 - Khai báo các thông tin về tap
   - Bridge DHCP: cho phép client nhận IP trong LAN thông qua DHCP Server
   - Bridge Interface: lựa chọn LAN được kết nối qua VPN

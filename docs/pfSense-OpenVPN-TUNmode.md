@@ -41,8 +41,14 @@ Bài lab thành công khi máy client nhận được IP của tunnel và có th
 - Tại tab System/UserManager, tạo user được VPN
   ![img](../images/openvpn_tun/2.jpg)
 
+- Khai báo Username, password của User, disable quyền login của user vào pfsense, loại bỏ user khỏi group admin. Sau đó "Save"
+  ![img](../images/openvpn_tun/2_1.jpg)
+
+- Sau khi user được tạo, click vào nút "Edit user"
+  ![img](../images/openvpn_tun/2_2.jpg)
+
 - Edit user vừa tạo, add certificate cho user đó
-  ![img](../images/openvpn_tun/3.jpg)
+  ![img](../images/openvpn_tun/2_3.jpg)
 
 - Chọn cert vừa tạo ở trên
   ![img](../images/openvpn_tun/4.jpg)
@@ -67,7 +73,9 @@ Bài lab thành công khi máy client nhận được IP của tunnel và có th
   - TLS Configuration: chọn sử dụng TLS key
   - Peer Certificate Authority: chọn CA cho hệ thống đã tạo trước đó (server-ca)
   - Server certificate: chọn cert cho server được tạo (server-cert)
+  - Enable NCP: lựa chọn sử dụng mã hóa đường truyền giữa Client và Server, sử dụng các giải thuật mặc định là AES-256-GCM và AES-128-GCM
   ![img](../images/ovpn_8.jpg) 
+  ![img](../images/ovpn_8_1.jpg) 
 - Khai báo các thông tin về tun
   - IPv4 Tunnel Network: khai báo network tunnel, VPN client sẽ được route tới Private LAN thông qua network này
   - IPv4 local Network: khai báo các dải Private LAN được truy cập thông qua VPN
