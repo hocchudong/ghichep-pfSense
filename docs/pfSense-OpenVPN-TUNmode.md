@@ -41,7 +41,7 @@ Bài lab thành công khi máy client nhận được IP của tunnel và có th
 - Tại tab System/UserManager, tạo user được VPN
   ![img](../images/openvpn_tun/2.jpg)
 
-- Khai báo Username, password của User, disable quyền login của user vào pfsense, loại bỏ user khỏi group admin. Sau đó "Save"
+- Khai báo Username, password của User. Sau đó "Save"
   ![img](../images/openvpn_tun/2_1.jpg)
 
 - Sau khi user được tạo, click vào nút "Edit user"
