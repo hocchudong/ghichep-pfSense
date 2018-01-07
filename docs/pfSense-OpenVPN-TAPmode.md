@@ -41,7 +41,7 @@ Bài lab thành công khi máy client nhận được IP của mạng LAN2 và c
 - Tại tab System/UserManager, tạo user được VPN
   ![img](../images/ovpn_3.jpg)
 
-- Khai báo Username, password của User, disable quyền login của user vào pfsense, loại bỏ user khỏi group admin. Sau đó "Save"
+- Khai báo Username, password của User. Sau đó "Save"
   ![img](../images/ovpn_3_1.jpg)
 
 - Sau khi user được tạo, click vào nút "Edit user"
