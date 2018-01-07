@@ -77,6 +77,12 @@ Cài đặt OpenVPN mode TUN theo hướng dẫn ở ![đây](./pfSense-OpenVPN-
 +-----------------------+-----------------------------------------------------------------------------------+
 ```
 
+## Thực hiện trên máy ảo Client
+  - Add route cho dải mạng 10.8.3.0/24
+  ```sh
+  ip route add 10.8.3.0/24 via 40.40.40.3 dev eth3
+  ```
+
 ## Thực hiện trên host Remote, kết nối VPN
   - Trên host Remote, cài đặt OpenVPN
     ```sh
@@ -135,7 +141,7 @@ Cài đặt OpenVPN mode TUN theo hướng dẫn ở ![đây](./pfSense-OpenVPN-
 
   - Kiểm tra bằng lệnh `ip a`, host đã nhận IP của Tunnel
   	```sh
-  	22: tun0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UNKNOWN group default qlen 100
+  	tun0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UNKNOWN group default qlen 100
     link/none 
     inet 10.8.3.2/24 brd 10.8.3.255 scope global tun0
        valid_lft forever preferred_lft forever
