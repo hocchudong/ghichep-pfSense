@@ -18,7 +18,7 @@ Bài lab thành công khi máy client nhận được IP của mạng LAN2 và c
 ## Chuẩn bị và môi trường LAB
 - Máy server_target: có thể sử dụng bất kỳ hệ điều hành và cấu hình nào.
 - Máy Client: có thể sử dụng hệ điều hành Linux hoặc Windows (tùy vào loại hệ điều hành mà cài gói OpenVPN client tương ứng), trong bài lab này sẽ sử dụng OS Windows 10.
-- Máy PFSense: tham khảo hướng dẫn cài đặt ở ![đây](./pfSense-install.md)
+- Máy PFSense: tham khảo hướng dẫn cài đặt ở [đây](./pfSense-install.md)
  
 
 ## Thực hiện trên PFSense
@@ -41,11 +41,17 @@ Bài lab thành công khi máy client nhận được IP của mạng LAN2 và c
 - Tại tab System/UserManager, tạo user được VPN
   ![img](../images/ovpn_3.jpg)
 
-- Edit user vừa tạo, add certificate cho user đó
+- Khai báo Username, password của User, disable quyền login của user vào pfsense, loại bỏ user khỏi group admin. Sau đó "Save"
   ![img](../images/ovpn_3_1.jpg)
 
-- Chọn cert vừa tạo ở trên
+- Sau khi user được tạo, click vào nút "Edit user"
   ![img](../images/ovpn_3_2.jpg)
+
+- Edit user vừa tạo, add certificate cho user đó
+  ![img](../images/ovpn_3_3.jpg)
+
+- Chọn cert vừa tạo ở trên
+  ![img](../images/ovpn_3_4.jpg)
 
 ### Tạo VPN Server
 
@@ -65,9 +71,13 @@ Bài lab thành công khi máy client nhận được IP của mạng LAN2 và c
   ![img](../images/ovpn_7.jpg) 
 - Khai báo các thông tin về mã hóa
   - TLS Configuration: chọn sử dụng TLS key
-  - Peer Certificate Authority: chọn CA cho hệ thống đã tạo trước đó (longlq-ca)
-  - Server certificate: chọn cert cho server được tạo (server)
+  - Peer Certificate Authority: chọn CA cho hệ thống đã tạo trước đó (server-ca)
+  - Server certificate: chọn cert cho server được tạo (server-cert)
+  - Enable NCP: lựa chọn sử dụng mã hóa đường truyền giữa Client và Server, sử dụng các giải thuật mặc định là AES-256-GCM và AES-128-GCM
+  - Auth digest algorithm: lựa chọn giải thuật xác thực kênh truyền là SHA256
   ![img](../images/ovpn_8.jpg) 
+  ![img](../images/ovpn_8_1.jpg) 
+
 - Khai báo các thông tin về tap
   - Bridge DHCP: cho phép client nhận IP trong LAN thông qua DHCP Server
   - Bridge Interface: lựa chọn LAN được kết nối qua VPN
@@ -113,7 +123,12 @@ Bài lab thành công khi máy client nhận được IP của mạng LAN2 và c
   - Tải gói cài đặt Openvpn config cho windows, có tên "openvpn-pfSense-udp-1194-longlq-install-2.4.4-I601.exe"
     ![img](../images/ovpn_18.jpg)
 
-## Thực hiện trên Client, kết nối VPN
+## Thực hiện trên Client, kết nối VPN (hướng dẫn cho Client sử dụng Windows OS Vista trở về sau)
+
+  - Download gói cài OpenVPN mới nhất cho Windows tại link sau và thực hiện cài đặt: https://openvpn.net/index.php/open-source/downloads.html
+
+    ![img](../images/ovpn_18_1.jpg)
+
   - Trên Client, cài đặt gói OpenVPN config
 
     ![img](../images/ovpn_19.jpg)

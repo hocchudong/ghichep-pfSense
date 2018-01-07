@@ -17,11 +17,11 @@ Bài lab thành công khi máy remote quay VPN thành công và ping được t�
 ## Chuẩn bị và môi trường LAB
 - Máy remote: OS Ubunu 14.04
 - Máy Client: OS Ubuntu 14.04
-- Máy PFSense: tham khảo hướng dẫn cài đặt ở ![đây](./pfSense-install.md)
+- Máy PFSense: tham khảo hướng dẫn cài đặt ở [đây](./pfSense-install.md)
  
 
 ## Thực hiện trên PFSense
-Cài đặt OpenVPN mode TUN theo hướng dẫn ở ![đây](./pfSense-OpenVPN-TUNmode.md)
+Cài đặt OpenVPN mode TUN theo hướng dẫn ở [đây](./pfSense-OpenVPN-TUNmode.md)
  
 
 ## Thực hiện trên host Controller của OpenStack

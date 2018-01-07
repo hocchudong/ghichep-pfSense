@@ -18,7 +18,7 @@ Bài lab thành công khi máy client nhận được IP của tunnel và có th
 ## Chuẩn bị và môi trường LAB
 - Máy server_target: có thể sử dụng bất kỳ hệ điều hành và cấu hình nào.
 - Máy Client: có thể sử dụng hệ điều hành Linux hoặc Windows (tùy vào loại hệ điều hành mà cài gói OpenVPN client tương ứng), trong bài lab này sẽ sử dụng OS Windows 10.
-- Máy PFSense: tham khảo hướng dẫn cài đặt ở ![đây](./pfSense-install.md)
+- Máy PFSense: tham khảo hướng dẫn cài đặt ở [đây](./pfSense-install.md)
  
 
 ## Thực hiện trên PFSense
@@ -41,8 +41,14 @@ Bài lab thành công khi máy client nhận được IP của tunnel và có th
 - Tại tab System/UserManager, tạo user được VPN
   ![img](../images/openvpn_tun/2.jpg)
 
+- Khai báo Username, password của User, disable quyền login của user vào pfsense, loại bỏ user khỏi group admin. Sau đó "Save"
+  ![img](../images/openvpn_tun/2_1.jpg)
+
+- Sau khi user được tạo, click vào nút "Edit user"
+  ![img](../images/openvpn_tun/2_2.jpg)
+
 - Edit user vừa tạo, add certificate cho user đó
-  ![img](../images/openvpn_tun/3.jpg)
+  ![img](../images/openvpn_tun/2_3.jpg)
 
 - Chọn cert vừa tạo ở trên
   ![img](../images/openvpn_tun/4.jpg)
@@ -65,9 +71,12 @@ Bài lab thành công khi máy client nhận được IP của tunnel và có th
   ![img](../images/openvpn_tun/5.jpg) 
 - Khai báo các thông tin về mã hóa
   - TLS Configuration: chọn sử dụng TLS key
-  - Peer Certificate Authority: chọn CA cho hệ thống đã tạo trước đó (longlq-ca)
-  - Server certificate: chọn cert cho server được tạo (server)
+  - Peer Certificate Authority: chọn CA cho hệ thống đã tạo trước đó (server-ca)
+  - Server certificate: chọn cert cho server được tạo (server-cert)
+  - Enable NCP: lựa chọn sử dụng mã hóa đường truyền giữa Client và Server, sử dụng các giải thuật mặc định là AES-256-GCM và AES-128-GCM
+  - Auth digest algorithm: lựa chọn giải thuật xác thực kênh truyền là SHA256
   ![img](../images/ovpn_8.jpg) 
+  ![img](../images/ovpn_8_1.jpg) 
 - Khai báo các thông tin về tun
   - IPv4 Tunnel Network: khai báo network tunnel, VPN client sẽ được route tới Private LAN thông qua network này
   - IPv4 local Network: khai báo các dải Private LAN được truy cập thông qua VPN
@@ -128,7 +137,12 @@ Bài lab thành công khi máy client nhận được IP của tunnel và có th
     ```
 
 
-## Thực hiện trên Client, kết nối VPN
+## Thực hiện trên Client, kết nối VPN (hướng dẫn cho Client sử dụng Windows OS Vista trở về sau)
+
+  - Download gói cài OpenVPN mới nhất cho Windows tại link sau và thực hiện cài đặt: https://openvpn.net/index.php/open-source/downloads.html
+
+    ![img](../images/ovpn_18_1.jpg)
+
   - Trên Client, cài đặt gói OpenVPN config
 
     ![img](../images/ovpn_19.jpg)
