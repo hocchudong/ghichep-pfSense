@@ -65,8 +65,8 @@ Bài lab thành công khi máy client nhận được IP của tunnel và có th
   ![img](../images/openvpn_tun/5.jpg) 
 - Khai báo các thông tin về mã hóa
   - TLS Configuration: chọn sử dụng TLS key
-  - Peer Certificate Authority: chọn CA cho hệ thống đã tạo trước đó (longlq-ca)
-  - Server certificate: chọn cert cho server được tạo (server)
+  - Peer Certificate Authority: chọn CA cho hệ thống đã tạo trước đó (server-ca)
+  - Server certificate: chọn cert cho server được tạo (server-cert)
   ![img](../images/ovpn_8.jpg) 
 - Khai báo các thông tin về tun
   - IPv4 Tunnel Network: khai báo network tunnel, VPN client sẽ được route tới Private LAN thông qua network này

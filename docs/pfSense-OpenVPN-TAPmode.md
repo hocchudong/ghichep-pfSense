@@ -41,11 +41,17 @@ Bài lab thành công khi máy client nhận được IP của mạng LAN2 và c
 - Tại tab System/UserManager, tạo user được VPN
   ![img](../images/ovpn_3.jpg)
 
-- Edit user vừa tạo, add certificate cho user đó
+- Khai báo Username, password của User, disable quyền login của user vào pfsense, loại bỏ user khỏi group admin. Sau đó "Save"
   ![img](../images/ovpn_3_1.jpg)
 
-- Chọn cert vừa tạo ở trên
+- Sau khi user được tạo, click vào nút "Edit user"
   ![img](../images/ovpn_3_2.jpg)
+
+- Edit user vừa tạo, add certificate cho user đó
+  ![img](../images/ovpn_3_3.jpg)
+
+- Chọn cert vừa tạo ở trên
+  ![img](../images/ovpn_3_4.jpg)
 
 ### Tạo VPN Server
 
@@ -65,8 +71,8 @@ Bài lab thành công khi máy client nhận được IP của mạng LAN2 và c
   ![img](../images/ovpn_7.jpg) 
 - Khai báo các thông tin về mã hóa
   - TLS Configuration: chọn sử dụng TLS key
-  - Peer Certificate Authority: chọn CA cho hệ thống đã tạo trước đó (longlq-ca)
-  - Server certificate: chọn cert cho server được tạo (server)
+  - Peer Certificate Authority: chọn CA cho hệ thống đã tạo trước đó (server-ca)
+  - Server certificate: chọn cert cho server được tạo (server-cert)
   ![img](../images/ovpn_8.jpg) 
 - Khai báo các thông tin về tap
   - Bridge DHCP: cho phép client nhận IP trong LAN thông qua DHCP Server
