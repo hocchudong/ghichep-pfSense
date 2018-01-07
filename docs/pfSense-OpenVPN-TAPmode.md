@@ -18,7 +18,7 @@ Bài lab thành công khi máy client nhận được IP của mạng LAN2 và c
 ## Chuẩn bị và môi trường LAB
 - Máy server_target: có thể sử dụng bất kỳ hệ điều hành và cấu hình nào.
 - Máy Client: có thể sử dụng hệ điều hành Linux hoặc Windows (tùy vào loại hệ điều hành mà cài gói OpenVPN client tương ứng), trong bài lab này sẽ sử dụng OS Windows 10.
-- Máy PFSense: tham khảo hướng dẫn cài đặt ở ![đây](./pfSense-install.md)
+- Máy PFSense: tham khảo hướng dẫn cài đặt ở [đây](./pfSense-install.md)
  
 
 ## Thực hiện trên PFSense

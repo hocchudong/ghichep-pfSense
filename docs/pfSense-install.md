@@ -54,6 +54,7 @@ Lưu ý: OS chọn Other/FreeBSD (32 hoặc 64 tùy phiên bản)
 ![img](../images/pfsense_8.jpg)
 
 Xác nhận thông tin card mạng và chọn 'y'
+
 ![img](../images/pfsense_9.jpg)
 
 - Card mạng đã nhận IP (nếu có DHCP Server), tiếp tục chọn '2' để set ip static cho card
