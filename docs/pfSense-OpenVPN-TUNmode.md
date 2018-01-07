@@ -74,6 +74,7 @@ Bài lab thành công khi máy client nhận được IP của tunnel và có th
   - Peer Certificate Authority: chọn CA cho hệ thống đã tạo trước đó (server-ca)
   - Server certificate: chọn cert cho server được tạo (server-cert)
   - Enable NCP: lựa chọn sử dụng mã hóa đường truyền giữa Client và Server, sử dụng các giải thuật mặc định là AES-256-GCM và AES-128-GCM
+  - Auth digest algorithm: lựa chọn giải thuật xác thực kênh truyền là SHA256
   ![img](../images/ovpn_8.jpg) 
   ![img](../images/ovpn_8_1.jpg) 
 - Khai báo các thông tin về tun
@@ -141,7 +142,7 @@ Bài lab thành công khi máy client nhận được IP của tunnel và có th
   - Download gói cài OpenVPN mới nhất cho Windows tại link sau và thực hiện cài đặt: https://openvpn.net/index.php/open-source/downloads.html
 
     ![img](../images/ovpn_18_1.jpg)
-    
+
   - Trên Client, cài đặt gói OpenVPN config
 
     ![img](../images/ovpn_19.jpg)
